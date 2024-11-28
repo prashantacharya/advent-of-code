@@ -1,0 +1,51 @@
+#!/bin/bash
+
+# Get year and day as arguments
+YEAR=$1
+DAY=$2
+
+# Path to the template file
+TEMPLATE_PATH="template/template.py"
+
+# Validate arguments
+if [ -z "$YEAR" ] || [ -z "$DAY" ]; then
+    echo "Usage: $0 <year> <day>"
+    exit 1
+fi
+
+# Check if the template file exists
+if [ ! -f "$TEMPLATE_PATH" ]; then
+    echo "Error: Template file not found at $TEMPLATE_PATH"
+    exit 1
+fi
+
+# Create the year directory if it doesn't exist
+if [ ! -d "$YEAR" ]; then
+    mkdir "$YEAR"
+    echo "Created directory: $YEAR"
+fi
+
+# Navigate to the year directory
+cd "$YEAR"
+
+# Check if the day folder exists
+DAY_FOLDER="day$DAY"
+if [ -d "$DAY_FOLDER" ]; then
+    echo "Warning: Folder $DAY_FOLDER already exists. Exiting."
+    exit 1
+else
+    # Create the day folder
+    mkdir "$DAY_FOLDER"
+    echo "Created folder: $DAY_FOLDER"
+
+    # Navigate to the day folder
+    cd "$DAY_FOLDER"
+
+    # Copy the template to solution.py
+    cp "../../$TEMPLATE_PATH" solution.py
+    echo "Copied template to $DAY_FOLDER/solution.py"
+
+    # Create the remaining files
+    touch example challenge
+    echo "Created files: example, challenge in $DAY_FOLDER"
+fi
