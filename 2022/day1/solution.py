@@ -24,6 +24,3 @@ if step == 1:
     step1()
 elif step == 2:
     step2()
-
-
-print("Done!", file_path)

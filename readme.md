@@ -26,7 +26,7 @@ Make: Required to use the Makefile.
 To create the necessary folder structure for a specific year and day, use the create-day target in the Makefile:
 
 ```bash
-make create-day YEAR=2022 DAY=1
+make create-day year=2022 day=1
 ```
 
 This will create the following folder structure:
@@ -52,7 +52,7 @@ This will create the following folder structure:
 To run the solution, use the run-day target in the Makefile:
 
 ```bash
-make run YEAR=<year> DAY=<day> STEP=<step> INPUT=<'eaxmple' or nothing>
+make run year=<year> day=<day> step=<step> input=<'eaxmple' or nothing>
 ```
 
 If nothing is provided for input, challenge will be used as the default.
@@ -60,6 +60,6 @@ If nothing is provided for step, 1 will be used as the default.
 
 For example, to run the solution for day 1 of 2022, use the following command:
 ```bash
-make run YEAR=2022 DAY=1 STEP=1 INPUT=example
+make run year=2022 day=1 step=1 input=example
 ```
 
